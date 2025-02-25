@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_hiscox_case_list" model="ir.ui.view">
+        <field name="name">Hiscox Case List</field>
+        <field name="model">edited.hiscox.case</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="application_status"/>
+                <field name="qr_code"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hiscox_case_form" model="ir.ui.view">
+        <field name="name">Hiscox Case Form</field>
+        <field name="model">edited.hiscox.case</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                        <field name="application_status" readonly="1"/>
+                        <field name="qr_code" widget="image" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="submit_to_hiscox" string="Submit to Hiscox" type="object" class="oe_highlight"/>
+                        <button name="check_status_from_hiscox" string="Check Status" type="object"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

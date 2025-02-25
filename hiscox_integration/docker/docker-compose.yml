@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  odoo:
+    build: ./docker
+    ports:
+      - "8069:8069"
+    depends_on:
+      - db
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: odoo
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+  hiscox_mock_api:
+    build: ./api
+    ports:
+      - "5000:5000"

@@ -5,14 +5,16 @@
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
-                <field name="email"/>
-                <field name="phone"/>
-                <field name="application_status"/>
-                <field name="qr_code"/>
+                <field name="qr_code" widget="image"/>
+                <button name="submit_to_hiscox" string="Submit" type="object" class="btn-primary" invisible="submitted"/>
+                <button string="Submitted" class="btn-secondary"
+                        invisible="not submitted" disabled="True"/>
+                <button name="check_status_from_hiscox" string="Status" type="object" class="btn-info"/>
             </list>
         </field>
     </record>
 
+   <!-- Form View -->
     <record id="view_hiscox_case_form" model="ir.ui.view">
         <field name="name">Hiscox Case Form</field>
         <field name="model">edited.hiscox.case</field>
@@ -24,12 +26,15 @@
                         <field name="email"/>
                         <field name="phone"/>
                         <field name="application_status" readonly="1"/>
+                    </group>
+                    <group>
+                        <button name="generate_qr_code" string="Generate QR Code" type="object" class="oe_highlight"/>
+                    </group>
+
+                    <!-- Show QR Code only after saving -->
+                    <group invisible="1">
                         <field name="qr_code" widget="image" readonly="1"/>
                     </group>
-                    <footer>
-                        <button name="submit_to_hiscox" string="Submit to Hiscox" type="object" class="oe_highlight"/>
-                        <button name="check_status_from_hiscox" string="Check Status" type="object"/>
-                    </footer>
                 </sheet>
             </form>
         </field>

@@ -1,5 +1,10 @@
-FROM python:3.9
+FROM python:3.10
+
 WORKDIR /app
-COPY mock_hiscox_api.py .
-RUN pip install flask
+COPY . /app
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 5000
 CMD ["python", "mock_hiscox_api.py"]

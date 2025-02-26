@@ -1,0 +1,10 @@
+<odoo>
+    <!-- Main Insurance Menu -->
+    <menuitem id="menu_hiscox_root" name="Hiscox Insurance" sequence="1"/>
+
+    <!-- Submenu for Hiscox Cases -->
+    <menuitem id="menu_hiscox_cases" name="Hiscox Cases"
+              parent="menu_hiscox_root"
+              action="action_hiscox_case_list"
+              sequence="2"/>
+</odoo>
